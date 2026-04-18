@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/kuanta.html",
+      "permanent": false
+    }
+  ]
+}
