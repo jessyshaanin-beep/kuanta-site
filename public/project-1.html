@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Brand Launch — Kuanta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #041C3A;
+      --navy2: #06152E;
+      --navy3: #07162E;
+      --cyan: #5CE1E6;
+      --orange: #FF5A36;
+      --white: #ffffff;
+      --white60: rgba(255,255,255,0.6);
+      --white40: rgba(255,255,255,0.4);
+      --white15: rgba(255,255,255,0.15);
+      --white08: rgba(255,255,255,0.08);
+      --white04: rgba(255,255,255,0.04);
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--ff-body);
+      overflow-x: hidden;
+    }
+
+    .bg-fixed {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(92,225,230,0.12) 0%, transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(255,90,54,0.14) 0%, transparent 22%),
+        linear-gradient(180deg, #041C3A 0%, #06152E 50%, #041C3A 100%);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+    }
+
+    .nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(6,21,46,0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--white08);
+      border-radius: 999px;
+      padding: 14px 28px;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-back {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white60);
+      text-decoration: none;
+    }
+
+    .nav-back:hover { color: var(--cyan); }
+
+    .case-hero {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 160px 32px 80px;
+    }
+
+    .breadcrumb {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white40);
+      margin-bottom: 28px;
+    }
+
+    .case-title {
+      font-family: var(--ff-display);
+      font-size: clamp(72px, 10vw, 180px);
+      line-height: 0.85;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+    }
+
+    .case-meta-top {
+      margin-top: 24px;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .case-intro {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 80px;
+    }
+
+    .meta-block h3,
+    .project-block h3 {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 18px;
+    }
+
+    .meta-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--white60);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .project-block p {
+      color: var(--white60);
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 760px;
+    }
+
+    .media-block {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px 32px;
+    }
+
+    .media-large,
+    .media-medium {
+      width: 100%;
+      border: 1px solid var(--white08);
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(92,225,230,0.16), transparent 20%),
+        radial-gradient(circle at 80% 75%, rgba(255,90,54,0.16), transparent 22%),
+        linear-gradient(180deg, #0a1e3f 0%, #07162e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white40);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 12px;
+    }
+
+    .media-large { min-height: 720px; }
+    .media-medium { min-height: 520px; }
+
+    .case-section {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 100px 32px 20px;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .section-kicker {
+      font-family: var(--ff-display);
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .section-copy h4 {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+
+    .section-copy p {
+      color: var(--white60);
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 760px;
+    }
+
+    .dual-media {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .next-project {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 120px 32px 80px;
+      border-top: 1px solid var(--white08);
+    }
+
+    .next-project-label {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white40);
+      margin-bottom: 18px;
+    }
+
+    .next-project a {
+      font-family: var(--ff-display);
+      font-size: clamp(56px, 7vw, 110px);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .next-project a:hover { color: var(--cyan); }
+
+    footer {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px 48px;
+      color: var(--white40);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .case-intro,
+      .case-section,
+      .dual-media {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .media-large { min-height: 420px; }
+      .media-medium { min-height: 320px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-fixed"></div>
+
+  <header>
+    <div class="nav-inner">
+      <a href="/kuanta.html" class="nav-logo">
+        <img src="/kuanta-logo.svg" alt="Kuanta Logo" />
+      </a>
+      <a href="/kuanta.html#work" class="nav-back">Back to Work</a>
+    </div>
+  </header>
+
+  <section class="case-hero">
+    <div class="breadcrumb">Work / Luxury Brand Launch</div>
+    <h1 class="case-title">Luxury Brand Launch</h1>
+    <div class="case-meta-top">April 2026 · Scroll for details</div>
+  </section>
+
+  <section class="case-intro">
+    <div class="meta-block">
+      <h3>Services</h3>
+      <ul class="meta-list">
+        <li>Digital Strategy</li>
+        <li>Brand Direction</li>
+        <li>Content Production</li>
+        <li>Social Media</li>
+        <li>Paid Media</li>
+      </ul>
+    </div>
+
+    <div class="project-block">
+      <h3>The Project</h3>
+      <p>
+        A premium launch campaign built to introduce a modern consumer brand with
+        stronger positioning, sharper visual presence, and a growth-focused
+        digital rollout. The goal was to create immediate attention, establish
+        desirability, and build a launch system that could convert visibility
+        into demand.
+      </p>
+    </div>
+  </section>
+
+  <section class="media-block">
+    <div class="media-large">Hero Project Visual</div>
+  </section>
+
+  <section class="case-section">
+    <div class="section-kicker">Launch With Presence</div>
+    <div class="section-copy">
+      <h4>Challenge</h4>
+      <p>
+        The brand needed to enter the market with confidence, not noise. That
+        meant avoiding a generic launch and instead creating a digital presence
+        that felt intentional, desirable, and commercially smart from day one.
+        The challenge was to balance premium aesthetics with performance-led
+        execution.
+      </p>
+    </div>
+  </section>
+
+  <section class="dual-media">
+    <div class="media-medium">Campaign Visual 01</div>
+    <div class="media-medium">Campaign Visual 02</div>
+  </section>
+
+  <section class="case-section">
+    <div class="section-kicker">Sharp, Bold, Elevated</div>
+    <div class="section-copy">
+      <h4>Visual Design</h4>
+      <p>
+        The visual direction was built around contrast, confidence, and control.
+        Dark editorial surfaces, strong typography, and selective accent color
+        helped frame the brand as premium without losing clarity. Every visual
+        choice was designed to make the launch feel modern, high-value, and hard
+        to ignore.
+      </p>
+    </div>
+  </section>
+
+  <section class="media-block">
+    <div class="media-large">Website / Landing Page Visual</div>
+  </section>
+
+  <section class="case-section">
+    <div class="section-kicker">Built To Convert</div>
+    <div class="section-copy">
+      <h4>Results</h4>
+      <p>
+        Beyond aesthetics, the system was designed to drive action. The launch
+        framework gave the brand a stronger digital identity, a clearer campaign
+        structure, and a more persuasive online presence that could support both
+        awareness and conversion as the business scaled.
+      </p>
+    </div>
+  </section>
+
+  <section class="dual-media">
+    <div class="media-medium">Social / Ad Visual</div>
+    <div class="media-medium">Product / Mood Visual</div>
+  </section>
+
+  <section class="next-project">
+    <div class="next-project-label">Next Project</div>
+    <a href="/project-2.html">Hospitality Digital Refresh</a>
+  </section>
+
+  <footer>
+    © 2026 Kuanta Agency
+  </footer>
+</body>
+</html>
