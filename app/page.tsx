@@ -1,5 +1,11 @@
-import { redirect } from "next/navigation";
+"use client";
+
+import { useEffect } from "react";
 
 export default function Home() {
-  redirect("/kuanta.html");
+  useEffect(() => {
+    window.location.href = "/kuanta.html";
+  }, []);
+
+  return null;
 }
